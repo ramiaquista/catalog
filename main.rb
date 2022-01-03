@@ -1,3 +1,6 @@
+require './game_logic'
+require './author_logic'
+
 def menu_options
   puts 'Please choose on option by enterin a number',
        '1- List all books',
@@ -18,40 +21,40 @@ end
 
 def first_conditions(num)
   case num
-  when num == 1
+  when 1
     list_all_books
-  when num == 2
+  when 2
     list_music_albums
-  when num == 3
+  when 3
     list_all_movies
-  when num == 4
+  when 4
     list_games
-  when num == 5
+  when 5
     list_all_genres
-  when num == 6
+  when 6
     list_all_labels
   end
 end
 
 def second_conditions(num)
   case num
-  when num == 7
+  when 7
     list_all_authors
-  when num == 8
+  when 8
     list_all_sources
-  when num == 9
+  when 9
     add_book
-  when num == 10
+  when 10
     add_music_album
-  when num == 11
+  when 11
     add_movie
-  when num == 12
+  when 12
     add_game
   end
 end
 
 def conditions(num)
-  if num >= 6
+  if num <= 6
     first_conditions(num)
   else
     second_conditions(num)
@@ -59,13 +62,16 @@ def conditions(num)
 end
 
 def check(num)
-  conditions(num) while num != 13
+  while num != 13
+    conditions(num)
+    num = menu_options.to_i
+  end
   puts 'Good Bye! Have a nice day!'
 end
 
 def main
   puts 'Welcome to your Catalog'
-  num = menu_options
+  num = menu_options.to_i
   check(num.to_i)
 end
 
