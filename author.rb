@@ -11,4 +11,8 @@ class Author
   def add_item(item)
     @items << item
   end
+
+  def to_json(*)
+    { first_name: @first_name, last_name: @last_name, items: [] }.to_json
+  end
 end

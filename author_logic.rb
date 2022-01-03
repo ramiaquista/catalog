@@ -1,9 +1,10 @@
 require './author'
+require './store_authors'
+require './read_authors'
 
-author1 = Author.new('Stephen', 'King')
-author2 = Author.new('Miguel', 'de Cervantes')
+@authors = []
 
-@authors = [author1, author2]
+read_authors(@authors) if File.exist?('./authors.json')
 
 def list_all_authors
   @authors.each_with_index do |a, i|
