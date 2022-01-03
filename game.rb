@@ -16,4 +16,8 @@ class Game < Item
 
     false
   end
+
+  def to_json(*)
+    { publish_date: @publish_date, multiplayer: @multiplayer, last_played_at: @last_played_at }.to_json
+  end
 end

@@ -1,6 +1,10 @@
 require './game'
+require './store_games'
+require './read_games'
 
 @games = []
+
+read_games(@games) if File.exist?('./games.json')
 
 def list_games
   @games.each_with_index do |g, i|
@@ -19,4 +23,5 @@ def add_game
   game = Game.new(publish_date, mult, last_played_at)
   puts 'Game created successfully!'
   @games << game
+  store_games(@games)
 end
