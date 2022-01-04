@@ -38,4 +38,3 @@ class Item
     @archived = result
   end
 end
-
