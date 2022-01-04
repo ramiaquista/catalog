@@ -1,6 +1,5 @@
 require './books_logic'
 require './labels_logic'
-require './label'
 
 def menu_options
   puts 'Please choose on option by enterin a number',
