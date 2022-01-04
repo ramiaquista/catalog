@@ -15,7 +15,3 @@ class Book < Item
     false
   end
 end
-
-book = Book.new('2000-01-04', 'castellana', 'good')
-
-puts book.can_be_archived?

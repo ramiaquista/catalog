@@ -1,3 +1,5 @@
+require './books_logic.rb'
+
 def menu_options
   puts 'Please choose on option by enterin a number',
        '1- List all books',
