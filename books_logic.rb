@@ -27,4 +27,24 @@ def add_book
   publisher = gets.chomp
   puts 'Input the cover state:'
   cover_state = gets.chomp
+  book = Book.new(publish_date, publisher, cover_state)
+  @book_list.push(book)
+  puts 'Book added successfully. Add more 1:[Yes] 2:[No]'
+  response = gets.chomp
+  if response.to_i == 1
+    add_book
+  else
+    save_book
+  end
+end
+
+def save_book
+  array_json = []
+  @book_list.each do |b|
+    array_json.push({ 'publish_date' => b.publish_date, 'publisher' => b.publisher,
+                      'cover_state' => b.cover_state, 'id' => b.id }.to_json)
+  end
+  json = array_json.join(',')
+  json = "[#{json}]"
+  File.write('books.json', json)
 end
