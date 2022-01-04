@@ -13,6 +13,6 @@ class Author
   end
 
   def to_json(*)
-    { first_name: @first_name, last_name: @last_name, items: [] }.to_json
+    { first_name: @first_name, last_name: @last_name, items: @items }.to_json
   end
 end
