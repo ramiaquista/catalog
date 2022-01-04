@@ -1,12 +1,3 @@
-CREATE TABLE Item (
-   id INT GENERATED ALWAYS AS IDENTITY,
-   published_date DATE,
-   archived BOOLEAN,
-   author_id INT,
-   PRIMARY KEY (id),
-   FOREIGN KEY (author_id) REFERENCES Author(id)
-);
-
 CREATE TABLE Author (
     id INT GENERATED ALWAYS AS IDENTITY,
     first_name VARCHAR(50),
