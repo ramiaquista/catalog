@@ -1,5 +1,6 @@
 require './book'
 require 'json'
+require './labels_logic'
 
 @book_list = []
 
@@ -28,14 +29,11 @@ def add_book
   puts 'Input the cover state:'
   cover_state = gets.chomp
   book = Book.new(publish_date, publisher, cover_state)
-  @book_list.push(book)
-  puts 'Book added successfully. Add more 1:[Yes] 2:[No]'
+  @book_list.push(sub_menu_label(book))
+  puts 'Book added successfully. Add more ? 1:[Yes] 2:[No]'
   response = gets.chomp
-  if response.to_i == 1
-    add_book
-  else
-    save_book
-  end
+  save_book
+  add_book if response.to_i == 1
 end
 
 def save_book
