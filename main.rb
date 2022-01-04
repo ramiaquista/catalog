@@ -1,5 +1,9 @@
+
 require './books_logic'
 require './labels_logic'
+require './game_logic'
+require './author_logic'
+
 
 def menu_options
   puts 'Please choose on option by enterin a number',
