@@ -9,7 +9,7 @@ def list_all_labels
     data = File.read('./labels.json')
     hashes = JSON.parse(data)
     @labels_list = make_label_list(hashes) if @labels_list.any? == false
-    @labels_list.each { |l| puts l.title.to_s }
+    @labels_list.each { |l| puts l.title.to_s.capitalize }
   else
     puts 'No labels created. must created a Book and Label to show.'
   end
