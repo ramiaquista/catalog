@@ -1,4 +1,4 @@
-require './books_logic.rb'
+require './books_logic'
 
 def menu_options
   puts 'Please choose on option by enterin a number',
