@@ -1,3 +1,5 @@
+require './books_logic'
+require './labels_logic'
 require './game_logic'
 require './author_logic'
 
