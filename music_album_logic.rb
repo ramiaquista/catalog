@@ -23,7 +23,6 @@ def add_music_album
   on_spotify = gets.chomp
   on_spot = on_spotify.downcase == 'y'
   music_album = MusicAlbum.new(publish_date, on_spotify: on_spot)
-  puts music_album
   puts 'music album created successfully!'
   @music_albums << music_album
   genre.add_item(music_album)
