@@ -15,7 +15,15 @@ CREATE TABLE Author (
 );
 
 CREATE TABLE Genre (
-  id SERIAL,
+ id INT GENERATED ALWAYS AS IDENTITY,
+  name TEXT,
+  items TEXT,
+  PRIMARY KEY (id)
+);
+
+
+CREATE TABLE Source (
+  id INT GENERATED ALWAYS AS IDENTITY,
   name TEXT,
   items TEXT,
   PRIMARY KEY (id)
@@ -23,31 +31,50 @@ CREATE TABLE Genre (
 
 CREATE TABLE Book (
   id INT GENERATED ALWAYS AS IDENTITY,
-  genre VARCHAR(50),
-  author VARCHAR(50),
-  source VARCHAR(50),
+  genre_id INT,
+  author_id INT,
+  source_id INT,
   label_id INT,
   publish_date DATE,
   archived BOOLEAN,
   PRIMARY KEY (id),
   FOREIGN KEY (label_id) REFERENCES Label(id),
-  FOREIGN KEY (author_id) REFERENCES Author(id)   
+  FOREIGN KEY (author_id) REFERENCES Author(id),
+  FOREIGN KEY (source_id) REFERENCES Source(id), 
+  FOREIGN KEY (genre_id) REFERENCES Genre(id)    
 );
 
 CREATE TABLE Game (
   id INT GENERATED ALWAYS AS IDENTITY,
   published_date DATE,
   archived BOOLEAN,
+  genre_id INT,
   author_id INT,
+  source_id INT,
+  label_id INT,
   multiplayer BOOLEAN,
   last_played_at DATE,
-  game_id INT PRIMARY KEY REFERENCES Author(id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (label_id) REFERENCES Label(id),
+  FOREIGN KEY (source_id) REFERENCES Source(id),
+  FOREIGN KEY (author_id) REFERENCES Author(id), 
+  FOREIGN KEY (genre_id) REFERENCES Genre(id) 
 );
 
 CREATE TABLE MusicAlbum (
-  id SERIAL,
+  id INT GENERATED ALWAYS AS IDENTITY,
   published_date DATE,
   archived BOOLEAN,
+  genre_id INT,
+  author_id INT,
+  source_id INT,
+  label_id INT,
   on_spotify BOOLEAN,
-  Music_alboum_id INT PRIMARY KEY REFERENCES Genre(id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (label_id) REFERENCES Label(id),
+  FOREIGN KEY (source_id) REFERENCES Source(id),
+  FOREIGN KEY (author_id) REFERENCES Author(id), 
+  FOREIGN KEY (genre_id) REFERENCES Genre(id) 
 );
+
+
