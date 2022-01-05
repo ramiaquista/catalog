@@ -3,6 +3,8 @@
 # Catalog of my things
 
 > In this project we create a console app that will help you to keep a record of different types of things you won: books, music albums, movies, and games.
+
+> [Informative Video about the Project!](https://drive.google.com/file/d/15BlWCxXdBryXtuoBWou-g5WLIOZutzXR/view?usp=sharing)
 ## Built With
 
 - Ruby
