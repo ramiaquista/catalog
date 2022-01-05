@@ -1,6 +1,7 @@
 require './music_album'
 require './store_music_album'
 require './read_music_album'
+require './read_genre'
 
 @music_albums = []
 @genres = []
