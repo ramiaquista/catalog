@@ -1,3 +1,26 @@
+CREATE TABLE Label (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  title VARCHAR(50),
+  color VARCHAR(50),
+  items TEXT,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE Author (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  items TEXT,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE Genre (
+  id SERIAL,
+  name TEXT,
+  items TEXT,
+  PRIMARY KEY (id)
+);
+
 CREATE TABLE Book (
   id INT GENERATED ALWAYS AS IDENTITY,
   genre VARCHAR(50),
@@ -7,25 +30,8 @@ CREATE TABLE Book (
   publish_date DATE,
   archived BOOLEAN,
   PRIMARY KEY (id),
-  FOREIGN KEY (label_id) REFERENCES Label(id)  
-);
-
-CREATE TABLE Label (
-  id INT GENERATED ALWAYS AS IDENTITY,
-  title VARCHAR(50),
-  color VARCHAR(50),
-  items TEXT,
-  PRIMARY KEY(id)
-);
-CREATE TABLE Author (
-    id INT GENERATED ALWAYS AS IDENTITY,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-CREATE TABLE Genre (
-    id SERIAL,
-    name TEXT,
-    items TEXT,
-    PRIMARY KEY (id)
+  FOREIGN KEY (label_id) REFERENCES Label(id),
+  FOREIGN KEY (author_id) REFERENCES Author(id)   
 );
 
 CREATE TABLE Game (
@@ -35,12 +41,13 @@ CREATE TABLE Game (
   author_id INT,
   multiplayer BOOLEAN,
   last_played_at DATE,
-  game_id INT PRIMARY KEY REFERENCES Item(id)
+  game_id INT PRIMARY KEY REFERENCES Author(id)
 );
-CREATE TABLE Music_alboum (
+
+CREATE TABLE MusicAlbum (
   id SERIAL,
   published_date DATE,
   archived BOOLEAN,
   on_spotify BOOLEAN,
-  Music_alboum_id INT PRIMARY KEY REFERENCES Item(id)
+  Music_alboum_id INT PRIMARY KEY REFERENCES Genre(id)
 );
