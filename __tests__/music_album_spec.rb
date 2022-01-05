@@ -1,6 +1,6 @@
 require './music_album'
 
-describe Music_alboum do
+describe MusicAlbum do
   context 'Creating an instance of a musicAlbum' do
     it 'should create a new instace of a musicAlbum' do
       music_album = MusicAlbum.new('22/02/2022')

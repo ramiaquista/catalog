@@ -30,7 +30,8 @@ def first_conditions(num)
   when 2
     list_music_albums
   when 3
-    list_all_movies
+    # list_all_movies ( TeamMember4-task)
+    puts 'Feature under construction...'
   when 4
     list_games
   when 5
@@ -45,13 +46,15 @@ def second_conditions(num)
   when 7
     list_all_authors
   when 8
-    list_all_sources
+    # list_all_sources ( TeamMember4-task)
+    puts 'Feature under construction...'
   when 9
     add_book
   when 10
     add_music_album
   when 11
-    add_movie
+    # add_movie ( TeamMember4-task)
+    puts 'Feature under construction...'
   when 12
     add_game
   end

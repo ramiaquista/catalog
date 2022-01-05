@@ -1,7 +1,7 @@
 require 'date'
 
 class Item
-  attr_accessor :archived, :author, :source, :genre, :label
+  attr_reader :archived, :author, :source, :genre, :label
 
   def initialize(publish_date, archived: false)
     @id = Random.rand(1..1000)
@@ -11,18 +11,22 @@ class Item
 
   def add_genre()
     @genre = genre
+    genre.items.push(self) unless genre.items.include?(self)
   end
 
   def add_author(author)
     @author = author
+    author.items.push(self) unless author.items.include?(self)
   end
 
   def add_source(source)
     @source = source
+    source.items.push(self) unless source.items.include?(self)
   end
 
   def add_label(label)
     @label = label
+    label.items.push(self) unless label.items.include?(self)
   end
 
   def can_be_archived?
