@@ -39,9 +39,7 @@ def choose_label(book)
     @labels_list.each { |l| puts "#{l.id} #{l.title} #{l.color}" }
     option_selected = gets.chomp
     label = @labels_list.select { |l| l.id == option_selected.to_i }
-    label[0].add_item({ publish_date: book.publish_date.to_s, publisher: book.publisher.to_s,
-                        cover_state: book.cover_state.to_s })
-    book.add_label(label)
+    label[0].add_item(book)
     save_labels
     book
   else
@@ -56,9 +54,7 @@ def create_label(book)
   puts 'input the color:'
   color = gets.chomp
   label = Label.new(title, color)
-  label.add_item({ publish_date: book.publish_date.to_s, publisher: book.publisher.to_s,
-                   cover_state: book.cover_state.to_s })
-  book.add_label(label)
+  label.add_item(book)
   if File.exist?('./labels.json')
     data = File.read('./labels.json')
     hashes = JSON.parse(data)

@@ -9,7 +9,7 @@ class Item
     @archived = archived
   end
 
-  def add_genre()
+  def add_genre(genre)
     @genre = genre
     genre.items.push(self) unless genre.items.include?(self)
   end

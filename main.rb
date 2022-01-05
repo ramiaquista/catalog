@@ -53,8 +53,8 @@ def second_conditions(num)
   when 10
     add_music_album
   when 11
+    puts 'Feature under construction....'
     # add_movie ( TeamMember4-task)
-    puts 'Feature under construction...'
   when 12
     add_game
   end
