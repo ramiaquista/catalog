@@ -2,6 +2,8 @@ require './books_logic'
 require './labels_logic'
 require './game_logic'
 require './author_logic'
+require './music_album_logic'
+require './genre_logic'
 
 def menu_options
   puts 'Please choose on option by enterin a number',
@@ -76,5 +78,4 @@ def main
   num = menu_options.to_i
   check(num.to_i)
 end
-
 main
